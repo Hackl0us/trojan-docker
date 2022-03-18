@@ -16,8 +16,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Docker image tag
-        run: echo "image_tag=$(date "+%Y_%m_%d-%H_%M_%S")" >> $GITHUB_ENV
+#      - name: Generate Docker image tag
+#        run: echo "image_tag=$(date "+%Y_%m_%d-%H_%M_%S")" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -43,5 +43,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            hackl0us/trojan-caddy2:latest
-            hackl0us/trojan-caddy2:${{ env.image_tag }}
+            hackl0us/trojan:latest
+            hackl0us/trojan:${{ github.event.inputs.trojanVersion }}
