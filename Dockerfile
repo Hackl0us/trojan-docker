@@ -2,6 +2,10 @@ FROM alpine:3.15
 
 ARG TROJAN_VERSION='v1.16.0'
 
+COPY trojan/cert_detect.sh /cert_detect.sh
+
+RUN chmod +x /cert_detect.sh
+
 RUN apk --update add --no-cache --virtual .build-deps \
         build-base \
         cmake \
@@ -22,4 +26,4 @@ RUN apk --update add --no-cache --virtual .build-deps \
 
 WORKDIR /config
 
-CMD ["trojan", "config.json"]
+CMD ["/bin/sh", "/cert_detect.sh", "trojan", "config.json"]
