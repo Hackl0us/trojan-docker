@@ -5,14 +5,14 @@ services:
       - "443:443"
     volumes:
       - ./trojan/config:/config
-      - ./trojan/cert/your_domain.com_ecc:/cert
+      - ./trojan/cert:/cert
     restart: always
 
 #  acme.sh:
 #    image: neilpang/acme.sh
 #    container_name: acme.sh
 #    volumes:
-#      - ./trojan/cert/your_domain.com_ecc:/acme.sh
+#      - ./trojan/cert:/acme.sh
 #    environment:
 #      - CF_Token=XXXXX000XXXXXX
 #      - CF_Account_ID=XXXXX00000XXXXX
