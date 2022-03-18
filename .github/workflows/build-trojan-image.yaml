@@ -1,9 +1,9 @@
 name: Build Trojan image
 
 on:
-  push:
-    paths:
-      - 'Dockerfile'
+#  push:
+#    paths:
+#      - 'Dockerfile'
 
   workflow_dispatch:
     inputs:
